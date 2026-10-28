@@ -158,7 +158,6 @@ curl -X POST https://debopam-portfolio.dsjzcjmsh6.workers.dev/api/sync \
 - [x] Responsive layout, reduced-motion support, and keyboard navigation
 - [ ] Add real hero, about, and project imagery
 - [ ] Enable R2 favicon mirroring (R2 is currently disabled on the account)
-- [x] Retire the old GitHub Pages deployment
 - [ ] Add a custom domain
 - [ ] Add optional GitHub token support for larger repository counts
 
