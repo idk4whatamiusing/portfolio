@@ -1,37 +1,39 @@
-"use client";
-
-import { useSyncExternalStore } from "react";
-import Projects from "@/components/Projects";
-import { Masonry } from "masonic";
-import ExperimentCard from "@/components/ExperimentCard";
-import { profile } from "@/data/profile";
-import { useTab } from "@/components/TabContext";
-
-const subscribe = () => () => {};
-const getSnapshot = () => true;
-const getServerSnapshot = () => false;
+import Contact from "@/components/Contact";
+import Experiments from "@/components/Experiments";
+import Hero from "@/components/Hero";
+import Info from "@/components/Info";
+import Marquee from "@/components/Marquee";
+import Prologue from "@/components/Prologue";
+import { ProjectsProvider } from "@/components/ProjectsProvider";
+import Work from "@/components/Work";
+import { projectsSnapshot } from "@/data/projects";
+import { countLanguages } from "@/lib/format";
 
 export default function Home() {
-  const { tab } = useTab();
-  const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const projectCount = projectsSnapshot.projects.length;
+  const languageCount = countLanguages(projectsSnapshot.projects);
 
   return (
-    <div key={tab} className="fade">
-      {tab === "work" ? (
-        <Projects />
-      ) : mounted ? (
-        <section className="w-full px-0 pt-0 pb-24">
-          <Masonry
-            items={profile.experiments}
-            columnWidth={420}
-            columnGutter={6}
-            ssrWidth={1200}
-            render={({ index, data: item }) => (
-              <ExperimentCard item={item} index={index} />
-            )}
-          />
-        </section>
-      ) : null}
-    </div>
+    <>
+      <Hero projectCount={projectCount} languageCount={languageCount} />
+      <Marquee />
+      <Prologue
+        projectCount={projectCount}
+        languageCount={languageCount}
+        syncedAt={projectsSnapshot.syncedAt}
+      />
+
+      <ProjectsProvider initial={projectsSnapshot}>
+        <Work />
+        <Experiments />
+      </ProjectsProvider>
+
+      <Info
+        projectCount={projectCount}
+        languageCount={languageCount}
+        syncedAt={projectsSnapshot.syncedAt}
+      />
+      <Contact />
+    </>
   );
 }

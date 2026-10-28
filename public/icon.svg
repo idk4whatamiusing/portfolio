@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#fbfaf7"/><circle cx="16" cy="16" r="7" fill="#84cc16"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="11" fill="#2c2824"/>
+  <rect x="6" y="6" width="52" height="52" rx="6" fill="none" stroke="#a89474" stroke-opacity=".5"/>
+  <circle cx="47" cy="17" r="3" fill="#a89474"/>
+  <text x="32" y="43" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="29" font-style="italic" fill="#f4efe5">DD</text>
+</svg>

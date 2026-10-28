@@ -1,0 +1,33 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "debopam-portfolio",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-28",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*", "/media/*"]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "PROJECTS_KV",
+      "id": "d0f4fdbc3a894955a22a9ff1ea08e200"
+    }
+  ],
+  // R2 is not enabled on this account yet. Once it is, uncomment this binding
+  // and redeploy: favicons will be mirrored and served from /media/*.
+  // "r2_buckets": [
+  //   { "binding": "MEDIA_BUCKET", "bucket_name": "portfolio-media" }
+  // ],
+  "triggers": {
+    "crons": ["*/10 * * * *"]
+  },
+  "vars": {
+    "GITHUB_OWNER": "idk4whatamiusing",
+    "PORTFOLIO_REPO": "idk4whatamiusing.github.io"
+  }
+}

@@ -43,5 +43,11 @@ next-env.d.ts
 # GIF optimization backups
 .gif_backup/
 
+# Cloudflare
+.dev.vars
+.wrangler/
+CLOUDFLARE_API_TOKEN
+CLOUDFLARE_ACCOUNT_ID
+
 # Python venv
 .venv/

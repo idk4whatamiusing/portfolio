@@ -5,29 +5,31 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "eslint",
-    "export": "next build",
-    "deploy": "gh-pages -d out -b gh-pages --dotfiles --nojekyll"
+    "typecheck": "tsc --noEmit && tsc -p worker/tsconfig.json",
+    "sync": "tsx --env-file-if-exists=.dev.vars scripts/sync-local.ts",
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:worker": "wrangler deploy",
+    "seed": "wrangler kv key put --binding PROJECTS_KV projects:latest --path src/data/projects.generated.json --remote",
+    "tail": "wrangler tail"
   },
   "dependencies": {
-    "masonic": "^4.1.0",
     "next": "16.2.10",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261028.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
-    "gh-pages": "^6.3.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
-  },
-  "allowScripts": {
-    "gifsicle@7.0.1": true
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "wrangler": "^4.154.0"
   }
 }
