@@ -158,11 +158,11 @@ curl -X POST https://debopam-portfolio.dsjzcjmsh6.workers.dev/api/sync \
 - [x] Responsive layout, reduced-motion support, and keyboard navigation
 - [ ] Add real hero, about, and project imagery
 - [ ] Enable R2 favicon mirroring (R2 is currently disabled on the account)
-- [ ] Retire the old GitHub Pages deployment
+- [x] Retire the old GitHub Pages deployment
 - [ ] Add a custom domain
 - [ ] Add optional GitHub token support for larger repository counts
 
-See the [open issues](https://github.com/idk4whatamiusing/idk4whatamiusing.github.io/issues) for a full list of proposed features and known issues.
+See the [open issues](https://github.com/idk4whatamiusing/portfolio/issues) for a full list of proposed features and known issues.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -195,7 +195,7 @@ No open-source license is currently included. The code and content are published
 - GitHub: [@idk4whatamiusing](https://github.com/idk4whatamiusing)
 - Live site: [debopam-portfolio.dsjzcjmsh6.workers.dev](https://debopam-portfolio.dsjzcjmsh6.workers.dev/)
 
-Project Link: [github.com/idk4whatamiusing/idk4whatamiusing.github.io](https://github.com/idk4whatamiusing/idk4whatamiusing.github.io)
+Project Link: [github.com/idk4whatamiusing/portfolio](https://github.com/idk4whatamiusing/portfolio)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
