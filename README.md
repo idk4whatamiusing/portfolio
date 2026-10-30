@@ -105,6 +105,8 @@ Forks are always included and receive a `FORK` tag.
 
 The site renders from a committed snapshot first, then refreshes from `GET /api/projects` after about 900 ms and every five minutes while the tab is visible. `GET /api/status` reports the latest sync, and an authenticated `POST /api/sync` forces a refresh.
 
+For production, add a read-only GitHub token as a Worker secret (`npx wrangler secret put GITHUB_TOKEN`) so the ten-minute cron does not depend on GitHub's shared, unauthenticated rate limit.
+
 ### portfolio.json Overrides
 
 Add a `portfolio.json` at a repository root to override generated metadata:
@@ -159,7 +161,7 @@ curl -X POST https://debopam-portfolio.dsjzcjmsh6.workers.dev/api/sync \
 - [ ] Add real hero, about, and project imagery
 - [ ] Enable R2 favicon mirroring (R2 is currently disabled on the account)
 - [ ] Add a custom domain
-- [ ] Add optional GitHub token support for larger repository counts
+- [ ] Add a read-only GitHub token for reliable cron syncs
 
 See the [open issues](https://github.com/idk4whatamiusing/portfolio/issues) for a full list of proposed features and known issues.
 
